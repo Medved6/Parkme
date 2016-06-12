@@ -15,6 +15,10 @@ import com.fasterxml.jackson.databind.type.SimpleType;
 import com.spothero.volley.JacksonRequest;
 import com.spothero.volley.JacksonRequestListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by sergewsevolojsky on 09/06/16.
  */
@@ -22,7 +26,8 @@ public class NetworkManager {
 
 
     public interface UserResultListener {
-        void onFindUsers(User[] users);
+        void onFindUsers(ArrayList<User> users);
+
         void onFail();
     }
 
@@ -33,40 +38,32 @@ public class NetworkManager {
         //String url = "http://medvedprod.fr/json/users.json";
         //String url = "https://dl.dropboxusercontent.com/s/s8jcxvttnjuw2a1/users.json";
 
-        JacksonRequest<UserResult> request =
-                new JacksonRequest<UserResult>(
-                        Request.Method.GET,
-                        url,
-                        new JacksonRequestListener<UserResult>() {
-                            @Override
-                            public void onResponse(UserResult response, int statusCode, VolleyError error) {
+        JacksonRequest<User[]> request = new JacksonRequest<>(Request.Method.GET, url, new JacksonRequestListener<User[]>() {
+            @Override
+            public void onResponse(User[] response, int statusCode, VolleyError error) {
 
-                                if (error != null) {
-                                    if (listener != null) {
-                                        VolleyLog.e("Error: ", error.getMessage());
-                                        listener.onFail();
-                                    }
-                                } else {
-                                    if (response != null) {
-                                        if (listener != null) {
-                                            listener.onFindUsers(response.getUsers());
-                                        }
-                                    }
-                                }
-
-                            }
-
-                            @Override
-                            public JavaType getReturnType() {
-                                return ArrayType.construct(SimpleType.construct(User.class), null, null);
-                            }
+                if (error != null) {
+                    if (listener != null) {
+                        VolleyLog.e("Error: ", error.getMessage());
+                        listener.onFail();
+                    }
+                } else {
+                    if (response != null) {
+                        if (listener != null) {
+                            listener.onFindUsers(new ArrayList<>(Arrays.asList(response)));
                         }
-                );
+                    }
+                }
 
-        MyApp
-                .getInstance()
-                .requestQueue
-                .add(request);
+            }
+
+            @Override
+            public JavaType getReturnType() {
+                return ArrayType.construct(SimpleType.construct(User.class), null, null);
+            }
+        });
+
+        MyApp.getInstance().getRequestQueue().add(request);
     }
 
 

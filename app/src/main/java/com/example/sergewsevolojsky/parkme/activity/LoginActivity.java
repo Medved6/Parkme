@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import com.example.sergewsevolojsky.parkme.MyApp;
 import com.example.sergewsevolojsky.parkme.R;
 import com.example.sergewsevolojsky.parkme.models.User;
 import com.example.sergewsevolojsky.parkme.network.NetworkManager;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +70,8 @@ public class LoginActivity extends AppCompatActivity {
 
         NetworkManager.findUsers(new NetworkManager.UserResultListener() {
             @Override
-            public void onFindUsers(User[] usersResult) {
+            public void onFindUsers(ArrayList<User> usersResult) {
+                Log.e("USERS",usersResult.toString());
                 Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
             }
 
