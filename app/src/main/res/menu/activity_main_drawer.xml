@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_map"
+            android:title="@string/nav_map_text"/>
+        <item
+            android:id="@+id/nav_reservations"
+            android:title="@string/nav_reservations_text" />
+
+        <item
+            android:id="@+id/nav_payment"
+            android:title="@string/nav_payment_text" />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="@string/nav_settings_text" />
+
+        <item
+            android:id="@+id/nav_profil"
+            android:title="@string/nav_profil_text" />
+        <item
+            android:id="@+id/nav_propose"
+            android:title="@string/nav_propose_text" />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/nav_logout_text" />
+
+
+    </group>
+
+</menu>
