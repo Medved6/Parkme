@@ -8,6 +8,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.example.sergewsevolojsky.parkme.activity.LoginActivity;
 import com.example.sergewsevolojsky.parkme.activity.ReservationsActivity;
+import com.example.sergewsevolojsky.parkme.models.User;
+
+import java.util.ArrayList;
 
 /**
  * Created by sergewsevolojsky on 07/06/16.
@@ -15,7 +18,8 @@ import com.example.sergewsevolojsky.parkme.activity.ReservationsActivity;
 public class MyApp extends Application {
 
     private static Context context;
-    public boolean sessionID = false;
+    public boolean sessionID = true;
+    public ArrayList<User> sessionUser;
 
     private static MyApp instance;
 

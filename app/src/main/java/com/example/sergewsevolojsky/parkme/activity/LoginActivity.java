@@ -1,9 +1,6 @@
 package com.example.sergewsevolojsky.parkme.activity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,11 +12,10 @@ import android.widget.Toast;
 import com.example.sergewsevolojsky.parkme.MyApp;
 import com.example.sergewsevolojsky.parkme.R;
 import com.example.sergewsevolojsky.parkme.models.User;
-import com.example.sergewsevolojsky.parkme.network.NetworkManager;
+import com.example.sergewsevolojsky.parkme.network.UserNetworkManager;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity {
@@ -68,12 +64,12 @@ public class LoginActivity extends AppCompatActivity {
     private void BeforeLogin() {
 
 
-        NetworkManager.findUsers(new NetworkManager.UserResultListener() {
+        UserNetworkManager.findUsers(new UserNetworkManager.UserResultListener() {
             @Override
             public void onFindUsers(ArrayList<User> usersResult) {
                 Log.e("USERS",usersResult.toString());
-                Toast.makeText(LoginActivity.this, "ok", Toast.LENGTH_SHORT).show();
-            }
+                Toast.makeText(LoginActivity.this, usersResult.get(0).getName(), Toast.LENGTH_SHORT).show();
+              }
 
             @Override
             public void onFail() {

@@ -6,7 +6,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ListView
-        android:id="@+id/validated_reservation_listview"
+        android:id="@+id/validated_reservation_listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -1,14 +1,11 @@
 package com.example.sergewsevolojsky.parkme.network;
 
-import android.os.Message;
-import android.util.Log;
-
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.example.sergewsevolojsky.parkme.MyApp;
+import com.example.sergewsevolojsky.parkme.models.Reservation;
 import com.example.sergewsevolojsky.parkme.models.User;
-import com.example.sergewsevolojsky.parkme.models.UserResult;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.type.ArrayType;
 import com.fasterxml.jackson.databind.type.SimpleType;
@@ -17,30 +14,26 @@ import com.spothero.volley.JacksonRequestListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
- * Created by sergewsevolojsky on 09/06/16.
+ * Created by sergewsevolojsky on 12/06/16.
  */
-public class NetworkManager {
+public class ReservationNetworkManager {
 
 
-    public interface UserResultListener {
-        void onFindUsers(ArrayList<User> users);
+    public interface ReservationResultListener {
+        void onFindReservations(ArrayList<Reservation> reservations);
 
         void onFail();
     }
 
-    public static void findUsers(final UserResultListener listener) {
-        //String url = "http://37.139.18.66/test";
-        //String url = "http://swapi.co/api/people/1/";
-        String url = UrlBuilder.getUserUrl();
-        //String url = "http://medvedprod.fr/json/users.json";
-        //String url = "https://dl.dropboxusercontent.com/s/s8jcxvttnjuw2a1/users.json";
+    public static void findReservationByStatus(int position , int status,  final ReservationResultListener listener) {
 
-        JacksonRequest<User[]> request = new JacksonRequest<>(Request.Method.GET, url, new JacksonRequestListener<User[]>() {
+        String url = UrlBuilder.getReservationsByStatusUrl(position, status);
+
+        JacksonRequest<Reservation[]> request = new JacksonRequest<Reservation[]>(Request.Method.GET, url, new JacksonRequestListener<Reservation[]>() {
             @Override
-            public void onResponse(User[] response, int statusCode, VolleyError error) {
+            public void onResponse(Reservation[] response, int statusCode, VolleyError error) {
 
                 if (error != null) {
                     if (listener != null) {
@@ -50,7 +43,7 @@ public class NetworkManager {
                 } else {
                     if (response != null) {
                         if (listener != null) {
-                            listener.onFindUsers(new ArrayList<>(Arrays.asList(response)));
+                            listener.onFindReservations(new ArrayList<>(Arrays.asList(response)));
                         }
                     }
                 }
@@ -59,12 +52,10 @@ public class NetworkManager {
 
             @Override
             public JavaType getReturnType() {
-                return ArrayType.construct(SimpleType.construct(User.class), null, null);
+                return ArrayType.construct(SimpleType.construct(Reservation.class), null, null);
             }
         });
 
         MyApp.getInstance().getRequestQueue().add(request);
     }
-
-
 }

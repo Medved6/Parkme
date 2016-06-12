@@ -15,5 +15,17 @@ public class UrlBuilder {
         return String.format("%s/users",BASE_url);
     }
 
+    public static String getSpotsUrl(){
+        return String.format("%s/spots",BASE_url);
+    }
+
+    public static String getReservationsByStatusUrl(int position, int status){
+        return String.format("%s/reservation?userId=0&status=0",BASE_url);
+    }
+
+    public static String getSpotByIdUrl(int id){
+        return String.format("%s/spots/%s",BASE_url,id);
+    }
+
 
 }

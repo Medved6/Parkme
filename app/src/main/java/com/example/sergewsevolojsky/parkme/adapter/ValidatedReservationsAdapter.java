@@ -31,9 +31,9 @@ public class ValidatedReservationsAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        //return reservations.get(position).getSpotId();
-        return 5005;
+        return 0;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -47,7 +47,7 @@ public class ValidatedReservationsAdapter extends BaseAdapter {
             holder = (ValidatedReservationViewHolder) convertView.getTag();
         }
 
-        holder.setReservation(getItem(position));
+        holder.setReservation(reservations.get(position));
 
         return convertView;
     }

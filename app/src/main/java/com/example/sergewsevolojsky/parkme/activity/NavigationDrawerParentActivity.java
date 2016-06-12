@@ -8,11 +8,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.sergewsevolojsky.parkme.R;
-import com.example.sergewsevolojsky.parkme.models.User;
-import com.example.sergewsevolojsky.parkme.network.NetworkManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,11 +23,12 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
     @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
 
+    private TextView TextViewUserName;
+
 
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -46,7 +45,7 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-
+        
 
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -92,6 +91,7 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
 
 

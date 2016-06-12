@@ -1,7 +1,9 @@
 package com.example.sergewsevolojsky.parkme.adapter;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sergewsevolojsky.parkme.R;
 import com.example.sergewsevolojsky.parkme.models.Reservation;
@@ -11,16 +13,17 @@ import com.example.sergewsevolojsky.parkme.models.Reservation;
  */
 public class ValidatedReservationViewHolder {
 
-    private TextView reservationNameTextview;
+    private TextView reservationNameTextView;
 
     public ValidatedReservationViewHolder(View itemView) {
 
         // ButterKnife.bind(this, itemView);
 
-        reservationNameTextview = (TextView) itemView.findViewById(R.id.reservation_name_textview);
+        reservationNameTextView = (TextView) itemView.findViewById(R.id.reservation_name_textview);
     }
 
-    public void setReservation(Reservation reservation){
-        //reservationNameTextview.setText(reservation.getSpotId());
+    public void setReservation(Reservation reservations){
+        reservationNameTextView.setText(reservations.getCity());
+        Log.i("toto","ok");
     }
 }

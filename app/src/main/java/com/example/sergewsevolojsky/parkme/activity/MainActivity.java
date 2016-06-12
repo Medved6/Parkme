@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.sergewsevolojsky.parkme.MyApp;
 import com.example.sergewsevolojsky.parkme.R;
@@ -59,6 +60,8 @@ public class MainActivity extends NavigationDrawerParentActivity
         ButterKnife.bind(this);
 
         setNavigation();
+
+
 
 
         if(!MyApp.getInstance().sessionID){
