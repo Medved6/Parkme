@@ -19,7 +19,7 @@ public class MyApp extends Application {
 
     private static MyApp instance;
 
-    public RequestQueue requestQueue;
+    private RequestQueue requestQueue;
 
     @Override
     public void onCreate() {
@@ -35,5 +35,9 @@ public class MyApp extends Application {
 
     public static MyApp getInstance() {
         return instance;
+    }
+
+    public RequestQueue getRequestQueue() {
+        return requestQueue;
     }
 }
