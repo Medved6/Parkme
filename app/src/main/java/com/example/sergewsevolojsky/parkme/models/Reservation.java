@@ -6,11 +6,180 @@ import android.os.Parcelable;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sergewsevolojsky on 08/06/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Reservation implements Parcelable{
+public class Reservation implements Parcelable {
+
+
+    @JsonProperty(value = "spotId")
+    private int spotId;
+
+    @JsonProperty(value = "street")
+    private String street;
+
+    @JsonProperty(value = "city")
+    private String city;
+
+
+    @JsonProperty(value = "zipCode")
+    private String zipCode;
+
+    @JsonProperty(value = "rental")
+    public Rental rental;
+
+    public Reservation() {
+    }
+
+
+    protected Reservation(Parcel in) {
+        spotId = in.readInt();
+        street = in.readString();
+        city = in.readString();
+        zipCode = in.readString();
+        rental = in.readParcelable(Rental.class.getClassLoader());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(spotId);
+        dest.writeString(street);
+        dest.writeString(city);
+        dest.writeString(zipCode);
+        dest.writeParcelable(rental, flags);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Reservation> CREATOR = new Creator<Reservation>() {
+        @Override
+        public Reservation createFromParcel(Parcel in) {
+            return new Reservation(in);
+        }
+
+        @Override
+        public Reservation[] newArray(int size) {
+            return new Reservation[size];
+        }
+    };
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
+    }
+
+
+
+
+
+
+
+    public static class Rental implements Parcelable {
+        private int id, status;
+        private String rentBy;
+
+
+
+        public ReservationDate arrival;
+
+
+
+        public ReservationDate departure;
+
+
+        protected Rental(Parcel in) {
+            id = in.readInt();
+            status = in.readInt();
+            rentBy = in.readString();
+            arrival = in.readParcelable(ReservationDate.class.getClassLoader());
+            departure = in.readParcelable(ReservationDate.class.getClassLoader());
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(id);
+            dest.writeInt(status);
+            dest.writeString(rentBy);
+            dest.writeParcelable(arrival, flags);
+            dest.writeParcelable(departure, flags);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final Creator<Rental> CREATOR = new Creator<Rental>() {
+            @Override
+            public Rental createFromParcel(Parcel in) {
+                return new Rental(in);
+            }
+
+            @Override
+            public Rental[] newArray(int size) {
+                return new Rental[size];
+            }
+        };
+
+        public ReservationDate getDeparture() {
+            return departure;
+        }
+
+        public void setDeparture(ReservationDate departure) {
+            this.departure = departure;
+        }
+
+
+        public ReservationDate getArrival() {
+            return arrival;
+        }
+
+        public void setArrival(ReservationDate arrival) {
+            this.arrival = arrival;
+        }
+
+        public Rental() {
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getStatus() {
+            return status;
+        }
+
+        public void setStatus(int status) {
+            this.status = status;
+        }
+
+        public String getRentBy() {
+            return rentBy;
+        }
+
+        public void setRentBy(String rentBy) {
+            this.rentBy = rentBy;
+        }
+
+    }
+
+
+
+
 
     public String getStreet() {
         return street;
@@ -36,60 +205,15 @@ public class Reservation implements Parcelable{
         this.zipCode = zipCode;
     }
 
-    @JsonProperty(value = "street")
-    private String street;
-
-    @JsonProperty(value = "city")
-    private String city;
-
-
-    @JsonProperty(value = "zip_code")
-    private String zipCode;
-
-
-    // Default constructor
-    public Reservation() {
-
+    public int getSpotId() {
+        return spotId;
     }
 
-    // Parcelable constructor
-    public Reservation(Parcel in){
-        readFromParcel(in);
+    public void setSpotId(int spotId) {
+        this.spotId = spotId;
     }
-
-
-
-    private void readFromParcel(Parcel in) {
-        street = in.readString();
-        city = in.readString();
-        zipCode = in.readString();
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-        dest.writeString(street);
-        dest.writeString(city);
-        dest.writeString(zipCode);
-    }
-
-
-    public static final Parcelable.Creator CREATOR =
-            new Parcelable.Creator() {
-                public Reservation createFromParcel(Parcel in) {
-                    return new Reservation(in);
-                }
-
-                public Reservation[] newArray(int size) {
-                    return new Reservation[size];
-                }
-            };
 
 
 }
+
+

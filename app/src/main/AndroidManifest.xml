@@ -28,13 +28,18 @@
 
         <activity
             android:name=".activity.ReservationsActivity"
-            android:label="@string/title_activity_reservations"
+            android:label="Mes reservations"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.NavigationDrawerParentActivity" />
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/AppTheme.FullScreen" />
-        <activity android:name=".activity.InscriptionActivity"></activity>
+        <activity android:name=".activity.InscriptionActivity" />
+
+        <activity
+            android:name=".activity.ReservationDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

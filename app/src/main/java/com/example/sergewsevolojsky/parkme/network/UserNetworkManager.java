@@ -27,12 +27,9 @@ public class UserNetworkManager {
     }
 
     public static void findUsers(final UserResultListener listener) {
-        //String url = "http://37.139.18.66/test";
-        //String url = "http://swapi.co/api/people/1/";
-        String url = UrlBuilder.getUserUrl();
-        //String url = "http://medvedprod.fr/json/users.json";
-        //String url = "https://dl.dropboxusercontent.com/s/s8jcxvttnjuw2a1/users.json";
 
+
+        String url = UrlBuilder.getUserUrl();
         JacksonRequest<User[]> request = new JacksonRequest<>(Request.Method.GET, url, new JacksonRequestListener<User[]>() {
             @Override
             public void onResponse(User[] response, int statusCode, VolleyError error) {

@@ -14,13 +14,34 @@
 
 
     <style name="App_EditTextStyle" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- <item name="android:editTextStyle">@style/App_EditTextStyle.input</item>
-        <item name="android:textColor">#00ff00</item> -->
+        <item name="android:editTextStyle">@style/App_EditTextStyle.input</item>
+        <item name="android:textColor">#00ff00</item>
     </style>
 
 
     <style name="App_EditTextStyle.input">
         <item name="android:editTextColor">#ff0000</item>
+    </style>
+
+
+    <!--  LISTVIEW  -->
+
+
+    <style name="ReservationListView">
+        <item name="android:paddingTop">54dp</item>
+        <!-- <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item> -->
+        <item name="android:background">#F6F9FD</item>
+    </style>
+
+
+
+    // LIST VIEW CARD
+
+    <style name="ListViewCard" parent="CardView">
+
+        <item name="android:background">@drawable/list_view_card_shape</item>
+
     </style>
 
 

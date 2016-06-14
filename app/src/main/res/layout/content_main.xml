@@ -12,11 +12,10 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         mapbox:access_token="@string/accessToken"
-        mapbox:style_url="mapbox://styles/mapbox/streets-v9"
-        mapbox:center_latitude="-33.85699436"
-        mapbox:center_longitude="151.21510684"
-        mapbox:zoom="12"
-        mapbox:tilt="20"/>
+        mapbox:style_url="mapbox://styles/mapbox/light-v9"
+        mapbox:center_latitude="48.851867"
+        mapbox:center_longitude="2.419921"
+        mapbox:zoom="5" />
     <!-- note the access token string created in the previous step -->
 
 
@@ -25,5 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
+
+
 
 </RelativeLayout>

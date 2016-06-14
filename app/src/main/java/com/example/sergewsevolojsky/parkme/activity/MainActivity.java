@@ -87,7 +87,7 @@ public class MainActivity extends NavigationDrawerParentActivity
 
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .setCustomAnimations(R.anim.enter_animation, R.anim.enter_animation)
+                                //.setCustomAnimations(R.anim.enter_animation, R.anim.enter_animation)
                                 .add(R.id.marker_detail_container, markerDetailFragment)
                                 .addToBackStack(null)
                                 .commit();
@@ -98,9 +98,10 @@ public class MainActivity extends NavigationDrawerParentActivity
                 });
 
                 MarkerOptions markerOptions = new MarkerOptions()
-                        .position(new LatLng(-33.85699436, 151.21510684))
+                        .position(new LatLng(48.851867, 2.419921))
                         .title("Maison d'Anne Usse")
                         .snippet("rue 27 xDenlaron Delle");
+
 
                 // Il te faut un id
                 markerOptions.getMarker().setId(5012);

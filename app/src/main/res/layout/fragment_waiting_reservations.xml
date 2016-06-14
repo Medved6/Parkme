@@ -2,12 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sergewsevolojsky.parkme.fragments.WaitingReservationsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.sergewsevolojsky.parkme.fragments.ValidatedReservationsFragment"
+    android:id="@+id/main_container">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Reservations en attentes" />
+        android:theme="@style/ReservationListView"
+        >
+
+        <!-- TODO: Update blank fragment layout -->
+        <ListView
+            android:id="@+id/waiting_reservation_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </RelativeLayout>
+
 
 </FrameLayout>

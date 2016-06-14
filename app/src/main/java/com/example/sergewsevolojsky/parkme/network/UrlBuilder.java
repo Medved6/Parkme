@@ -20,11 +20,11 @@ public class UrlBuilder {
     }
 
     public static String getReservationsByStatusUrl(int position, int status){
-        return String.format("%s/reservation?userId=0&status=0",BASE_url);
+        return String.format("%s/reservation?userId=0&status=%s",BASE_url,status);
     }
 
     public static String getSpotByIdUrl(int id){
-        return String.format("%s/spots/%s",BASE_url,id);
+        return String.format("%s/spots?id=%s",BASE_url,id);
     }
 
 
