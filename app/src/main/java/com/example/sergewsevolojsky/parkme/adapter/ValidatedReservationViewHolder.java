@@ -18,33 +18,14 @@ import butterknife.ButterKnife;
 public class ValidatedReservationViewHolder {
 
 
-    @BindView(R.id.reservation_street_textview)
-    TextView reservationStreetTextView;
+    @BindView(R.id.reservation_adress_textview)
+    TextView reservationAdressTextView;
 
-    @BindView(R.id.reservation_zipcode_textview)
-    TextView reservationZipCodeTextView;
+    @BindView(R.id.reservation_rental_arrival_date_textview)
+    TextView reservationRentalArrivalDateTextView ;
 
-    @BindView(R.id.reservation_city_textview)
-    TextView reservationCityTextView ;
-
-    @BindView(R.id.reservation_rental_arrival_day_textview)
-    TextView reservationRentalArrivalDayTextView ;
-
-    @BindView(R.id.reservation_rental_arrival_month_textview)
-    TextView reservationRentalArrivalMonthTextView ;
-
-    @BindView(R.id.reservation_rental_arrival_year_textview)
-    TextView reservationRentalArrivalYearTextView ;
-
-    @BindView(R.id.reservation_rental_departure_day_textview)
-    TextView reservationRentalDepartureDayTextView ;
-
-    @BindView(R.id.reservation_rental_departure_month_textview)
-    TextView reservationRentalDepartureMonthTextView ;
-
-    @BindView(R.id.reservation_rental_departure_year_textview)
-    TextView reservationRentalDepartureYearTextView ;
-
+    @BindView(R.id.reservation_rental_departure_date_textview)
+    TextView reservationRentalDepartureDateTextView ;
 
     public ValidatedReservationViewHolder(View itemView) {
 
@@ -56,18 +37,16 @@ public class ValidatedReservationViewHolder {
     public void setReservation(Reservation reservations){
 
 
+        String address = reservations.getStreet() + " " + reservations.getZipCode() + " " + reservations.getCity();
 
-        reservationStreetTextView.setText(reservations.getStreet());
-        reservationZipCodeTextView.setText(reservations.getZipCode());
-        reservationCityTextView.setText(reservations.getCity());
+        reservationAdressTextView.setText(address);
 
-        reservationRentalArrivalDayTextView.setText(Integer.toString(reservations.getRental().getArrival().getDay()));
-        reservationRentalArrivalMonthTextView.setText(reservations.getRental().getArrival().getMonth());
-        reservationRentalArrivalYearTextView.setText(Integer.toString(reservations.getRental().getArrival().getYear()));
 
-        reservationRentalDepartureDayTextView.setText(Integer.toString(reservations.getRental().getDeparture().getDay()));
-        reservationRentalDepartureMonthTextView.setText(reservations.getRental().getDeparture().getMonth());
-        reservationRentalDepartureYearTextView.setText(Integer.toString(reservations.getRental().getDeparture().getYear()));
+        String arrival = Integer.toString(reservations.getRental().getArrival().getDay()) + " " + reservations.getRental().getArrival().getMonth() + " - " + Integer.toString(reservations.getRental().getArrival().getYear());
+        String departure = Integer.toString(reservations.getRental().getDeparture().getDay()) + " " + reservations.getRental().getDeparture().getMonth() + " - " + Integer.toString(reservations.getRental().getDeparture().getYear());
+
+        reservationRentalArrivalDateTextView.setText(arrival);
+        reservationRentalDepartureDateTextView.setText(departure);
 
 
 

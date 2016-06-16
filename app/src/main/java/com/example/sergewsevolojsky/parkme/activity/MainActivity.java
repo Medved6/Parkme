@@ -131,7 +131,7 @@ public class MainActivity extends NavigationDrawerParentActivity
                                 .add(R.id.marker_detail_container, markerDetailFragment)
                                 .addToBackStack(null);
 
-                        
+
 
                         markerDetailFragment.newInstance(spots.get((int) markerId));
 
