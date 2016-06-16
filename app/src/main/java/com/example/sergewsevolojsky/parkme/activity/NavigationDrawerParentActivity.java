@@ -1,13 +1,18 @@
 package com.example.sergewsevolojsky.parkme.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.sergewsevolojsky.parkme.R;
@@ -65,6 +70,14 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
         } else if (id == R.id.nav_propose) {
 
         } else if (id == R.id.nav_logout) {
+
+            SharedPreferences userDetails = getApplicationContext().getSharedPreferences("userdetails", MODE_PRIVATE);
+            SharedPreferences.Editor edit = userDetails.edit();
+            edit.clear();
+            edit.putString("name", "");
+            edit.putString("email", "");
+            edit.commit();
+
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
@@ -84,6 +97,7 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
 
 
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -91,6 +105,31 @@ public class NavigationDrawerParentActivity extends AppCompatActivity implements
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        View headerLayout = navigationView.getHeaderView(0);
+
+
+        TextView username = (TextView) headerLayout.findViewById(R.id.user_name_textView);
+        TextView useremail = (TextView) headerLayout.findViewById(R.id.user_mail_textView);
+
+
+
+        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("userdetails", MODE_PRIVATE);
+        String Uname = userDetails.getString("name", "");
+        String pass = userDetails.getString("email", "");
+
+
+        if(Uname.isEmpty()){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
+
+
+        username.setText(Uname);
+        useremail.setText(pass);
+
+        //Log.e("UNAME",Uname);
 
 
 

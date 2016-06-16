@@ -17,40 +17,23 @@ public class Spots implements Parcelable{
             city,
             vehicle;
 
-    int lat;
-    int lon;
+    float lat;
+    float lon;
 
     int rate;
     int price;
     int id;
 
-    boolean safe, inside;
-
-    public Spots() {
-    }
-
-    @JsonProperty("streetNumber")
-    private String streetNumber;
-
-    @JsonProperty("zipCode")
-    private String zipCode;
-
-    @JsonProperty("imgUrl")
-    private String imgUrl;
-
-    public ArrayList<Owner> owner;
-    public ArrayList<Rental> rental;
-
-
     protected Spots(Parcel in) {
         street = in.readString();
         city = in.readString();
         vehicle = in.readString();
-        lat = in.readInt();
-        lon = in.readInt();
+        lat = in.readFloat();
+        lon = in.readFloat();
         rate = in.readInt();
         price = in.readInt();
         id = in.readInt();
+        distance = in.readInt();
         safe = in.readByte() != 0;
         inside = in.readByte() != 0;
         streetNumber = in.readString();
@@ -65,11 +48,12 @@ public class Spots implements Parcelable{
         dest.writeString(street);
         dest.writeString(city);
         dest.writeString(vehicle);
-        dest.writeInt(lat);
-        dest.writeInt(lon);
+        dest.writeFloat(lat);
+        dest.writeFloat(lon);
         dest.writeInt(rate);
         dest.writeInt(price);
         dest.writeInt(id);
+        dest.writeInt(distance);
         dest.writeByte((byte) (safe ? 1 : 0));
         dest.writeByte((byte) (inside ? 1 : 0));
         dest.writeString(streetNumber);
@@ -96,7 +80,32 @@ public class Spots implements Parcelable{
         }
     };
 
+    public int getDistance() {
+        return distance;
+    }
 
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    int distance;
+
+    boolean safe, inside;
+
+    public Spots() {
+    }
+
+    @JsonProperty("streetNumber")
+    private String streetNumber;
+
+    @JsonProperty("zipCode")
+    private String zipCode;
+
+    @JsonProperty("imgUrl")
+    private String imgUrl;
+
+    public ArrayList<Owner> owner;
+    public ArrayList<Rental> rental;
 
 
     public static class Owner implements Parcelable{
@@ -175,7 +184,53 @@ public class Spots implements Parcelable{
     public static class Rental implements Parcelable{
 
         int id, status;
-        String rentBy;
+        int rentBy;
+
+        protected Rental(Parcel in) {
+            id = in.readInt();
+            status = in.readInt();
+            rentBy = in.readInt();
+            rentalPrice = in.readInt();
+            arrival = in.readParcelable(ReservationDate.class.getClassLoader());
+            departure = in.readParcelable(ReservationDate.class.getClassLoader());
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(id);
+            dest.writeInt(status);
+            dest.writeInt(rentBy);
+            dest.writeInt(rentalPrice);
+            dest.writeParcelable(arrival, flags);
+            dest.writeParcelable(departure, flags);
+        }
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        public static final Creator<Rental> CREATOR = new Creator<Rental>() {
+            @Override
+            public Rental createFromParcel(Parcel in) {
+                return new Rental(in);
+            }
+
+            @Override
+            public Rental[] newArray(int size) {
+                return new Rental[size];
+            }
+        };
+
+        public int getRentalPrice() {
+            return rentalPrice;
+        }
+
+        public void setRentalPrice(int rentalPrice) {
+            this.rentalPrice = rentalPrice;
+        }
+
+        int rentalPrice;
         ReservationDate arrival, departure;
 
         public Rental() {
@@ -197,11 +252,11 @@ public class Spots implements Parcelable{
             this.status = status;
         }
 
-        public String getRentBy() {
+        public int getRentBy() {
             return rentBy;
         }
 
-        public void setRentBy(String rentBy) {
+        public void setRentBy(int rentBy) {
             this.rentBy = rentBy;
         }
 
@@ -221,39 +276,6 @@ public class Spots implements Parcelable{
             this.departure = departure;
         }
 
-        protected Rental(Parcel in) {
-            id = in.readInt();
-            status = in.readInt();
-            rentBy = in.readString();
-            arrival = in.readParcelable(ReservationDate.class.getClassLoader());
-            departure = in.readParcelable(ReservationDate.class.getClassLoader());
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeInt(id);
-            dest.writeInt(status);
-            dest.writeString(rentBy);
-            dest.writeParcelable(arrival, flags);
-            dest.writeParcelable(departure, flags);
-        }
-
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        public static final Creator<Rental> CREATOR = new Creator<Rental>() {
-            @Override
-            public Rental createFromParcel(Parcel in) {
-                return new Rental(in);
-            }
-
-            @Override
-            public Rental[] newArray(int size) {
-                return new Rental[size];
-            }
-        };
     }
 
 
@@ -282,19 +304,19 @@ public class Spots implements Parcelable{
         this.vehicle = vehicle;
     }
 
-    public int getLat() {
+    public float getLat() {
         return lat;
     }
 
-    public void setLat(int lat) {
+    public void setLat(float lat) {
         this.lat = lat;
     }
 
-    public int getLon() {
+    public float getLon() {
         return lon;
     }
 
-    public void setLon(int lon) {
+    public void setLon(float lon) {
         this.lon = lon;
     }
 

@@ -85,22 +85,15 @@ public class Reservation implements Parcelable {
 
 
     public static class Rental implements Parcelable {
-        private int id, status;
-        private String rentBy;
-
-
-
-        public ReservationDate arrival;
-
-
-
-        public ReservationDate departure;
-
+        private int id;
+        private int status;
+        private int rentBy;
 
         protected Rental(Parcel in) {
             id = in.readInt();
             status = in.readInt();
-            rentBy = in.readString();
+            rentBy = in.readInt();
+            rentalPrice = in.readInt();
             arrival = in.readParcelable(ReservationDate.class.getClassLoader());
             departure = in.readParcelable(ReservationDate.class.getClassLoader());
         }
@@ -109,7 +102,8 @@ public class Reservation implements Parcelable {
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeInt(id);
             dest.writeInt(status);
-            dest.writeString(rentBy);
+            dest.writeInt(rentBy);
+            dest.writeInt(rentalPrice);
             dest.writeParcelable(arrival, flags);
             dest.writeParcelable(departure, flags);
         }
@@ -130,6 +124,26 @@ public class Reservation implements Parcelable {
                 return new Rental[size];
             }
         };
+
+        public int getRentalPrice() {
+            return rentalPrice;
+        }
+
+        public void setRentalPrice(int rentalPrice) {
+            this.rentalPrice = rentalPrice;
+        }
+
+        private int rentalPrice;
+
+
+
+
+        public ReservationDate arrival;
+
+
+
+        public ReservationDate departure;
+
 
         public ReservationDate getDeparture() {
             return departure;
@@ -167,11 +181,11 @@ public class Reservation implements Parcelable {
             this.status = status;
         }
 
-        public String getRentBy() {
+        public int getRentBy() {
             return rentBy;
         }
 
-        public void setRentBy(String rentBy) {
+        public void setRentBy(int rentBy) {
             this.rentBy = rentBy;
         }
 

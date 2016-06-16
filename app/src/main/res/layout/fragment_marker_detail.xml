@@ -1,28 +1,152 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="32dp"
+    android:layout_height="wrap_content"
     tools:context="com.example.sergewsevolojsky.parkme.fragments.MarkerDetailFragment"
-    android:background="#89DD67"
     >
 
-    <ScrollView
+    <RelativeLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:layout_marginBottom="12dp"
         >
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"
-            android:padding="16dp"
-            android:lineSpacingMultiplier="1.2"
-          />
+            android:layout_height="wrap_content"
+            style="@style/map_spot_card_style">
 
 
-    </ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:paddingBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight=".33333">
+
+                    <TextView
+                        android:id="@+id/distance_reservation_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="300m"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="distance"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        style="@style/marker_detail_subtitle_style"
+                        />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:alpha=".5"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight=".33333">
+
+
+
+                    <TextView
+                        android:id="@+id/price_reservation_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="145€"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        android:textColor="@color/colorGreen"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Prix"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        style="@style/marker_detail_subtitle_style"
+                        />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorPrimary"
+                    android:alpha=".5"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight=".33333">
+
+                    <TextView
+                        android:id="@+id/rate_reservation_textview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1/5"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Note"
+                        android:lineSpacingMultiplier="1.2"
+                        android:gravity="center"
+                        style="@style/marker_detail_subtitle_style"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="82dp"
+                android:text="Réserver"
+                style="@style/button_green"/>
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
 
 
 

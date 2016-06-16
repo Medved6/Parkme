@@ -10,32 +10,32 @@ import java.lang.reflect.Array;
  */
 public class ReservationDate implements Parcelable {
 
-    private String day, month, year;
+    private int day, month, year;
 
     private String[] monthes = {"Jan","Feb","Mar","April","May","June","July","Aug","Sep","Oct","Nov","Dec"};
 
-    public String getDay() {
+    public int getDay() {
         return day;
     }
 
-    public void setDay(String day) {
+    public void setDay(int day) {
         this.day = day;
     }
 
     public String getMonth() {
-        return this.monthes[Integer.parseInt(month)];
+        return this.monthes[month];
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
 
         this.month = month;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
@@ -44,16 +44,16 @@ public class ReservationDate implements Parcelable {
     }
 
     protected ReservationDate(Parcel in) {
-        day = in.readString();
-        month = in.readString();
-        year = in.readString();
+        day = in.readInt();
+        month = in.readInt();
+        year = in.readInt();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(day);
-        dest.writeString(month);
-        dest.writeString(year);
+        dest.writeInt(day);
+        dest.writeInt(month);
+        dest.writeInt(year);
     }
 
     @Override

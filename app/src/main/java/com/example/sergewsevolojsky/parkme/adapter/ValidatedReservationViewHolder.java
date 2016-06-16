@@ -61,13 +61,13 @@ public class ValidatedReservationViewHolder {
         reservationZipCodeTextView.setText(reservations.getZipCode());
         reservationCityTextView.setText(reservations.getCity());
 
-        reservationRentalArrivalDayTextView.setText(Integer.toString(reservations.getSpotId()));
+        reservationRentalArrivalDayTextView.setText(Integer.toString(reservations.getRental().getArrival().getDay()));
         reservationRentalArrivalMonthTextView.setText(reservations.getRental().getArrival().getMonth());
-        reservationRentalArrivalYearTextView.setText(reservations.getRental().getArrival().getYear());
+        reservationRentalArrivalYearTextView.setText(Integer.toString(reservations.getRental().getArrival().getYear()));
 
-        reservationRentalDepartureDayTextView.setText(reservations.getRental().getDeparture().getDay());
+        reservationRentalDepartureDayTextView.setText(Integer.toString(reservations.getRental().getDeparture().getDay()));
         reservationRentalDepartureMonthTextView.setText(reservations.getRental().getDeparture().getMonth());
-        reservationRentalDepartureYearTextView.setText(reservations.getRental().getDeparture().getYear());
+        reservationRentalDepartureYearTextView.setText(Integer.toString(reservations.getRental().getDeparture().getYear()));
 
 
 

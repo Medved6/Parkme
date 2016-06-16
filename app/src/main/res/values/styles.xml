@@ -24,8 +24,18 @@
     </style>
 
 
-    <!--  LISTVIEW  -->
+    <!--  BLUE LINE -->
 
+
+    <style name="blue_line_style">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:alpha">0.5</item>
+    </style>
+
+
+
+
+    <!--  LISTVIEW  -->
 
     <style name="ReservationListView">
         <item name="android:paddingTop">54dp</item>
@@ -36,7 +46,8 @@
 
 
 
-    // LIST VIEW CARD
+
+    <!--  LIST VIEW CARD  -->
 
     <style name="ListViewCard" parent="CardView">
 
@@ -46,21 +57,62 @@
 
 
 
+
+
+    <!-- MAP SPOT CARD STYLE -->
+
+
+    <style name="map_spot_card_style">
+        <item name="android:background">@drawable/marker_detail_shape</item>
+    </style>
+
+
+
+    <style name="marker_detail_subtitle_style">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:alpha">.3</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">12dp</item>
+
+
+    </style>
+
+
+
+
+
+    <!--  RESERVATION BUTTON  -->
+
+    <style name="button_green" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/reservation_button_shape</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+
+
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:itemBackground">#ff0000</item>
-
     </style>
 
-    <style name="ButtonBlue">
-        <item name="android:layout_height">64dp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+
+
+    <style name="title_color_custom">
+        <item name="android:textColor">#ff0000</item>
     </style>
+
+
+
 
     <style name="myCustomMenuTextApearance">
         <item name="android:textColor">#ff0000</item>
     </style>
+
+
+
+
 
 
     <style name="NavDrawer">

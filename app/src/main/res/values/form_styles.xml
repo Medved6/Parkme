@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--  FORM CONTROLS  -->
+
+    <style name="form_control_style">
+        <item name="android:layout_marginBottom">24dp</item>
+
+    </style>
+
+
+
+    <!--  INPUT SUBMIT  -->
+
+    <style name="input_submit_style" parent="Base.Widget.AppCompat.Button.Borderless">
+
+        <item name="android:background">@drawable/input_submit_shape</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:height">64dp</item>
+
+    </style>
+
+
+
+    <!--  LABELS -->
+
+
+    <style name="label_style">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:alpha">0.5</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+    </style>
+
+
+
+    <!--  INPUT TEXT  -->
+
+    <style name="input_text_style" parent="">
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:background">#00000000</item>
+    </style>
+
+
+
+
+
+
+
+    <!--  DATE PICKER CTA STYLE  -->
+
+    <style name="datePickerCtaStyle" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_vertical|left</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+
+
+
+
+</resources>

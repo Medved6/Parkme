@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sergewsevolojsky.parkme.MyApp;
 import com.example.sergewsevolojsky.parkme.R;
+import com.example.sergewsevolojsky.parkme.models.User;
+import com.example.sergewsevolojsky.parkme.network.UserNetworkManager;
+
+import java.util.ArrayList;
 
 public class InscriptionActivity extends AppCompatActivity {
 
@@ -38,7 +43,23 @@ public class InscriptionActivity extends AppCompatActivity {
     private void before_registration() {
 
 
-        register();
+        UserNetworkManager.registerUsers( new UserNetworkManager.UserRegisterResultListener() {
+            @Override
+            public void onRegisterUsers(ArrayList<User> user) {
+
+                Toast.makeText(InscriptionActivity.this, "ok", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFail() {
+                Toast.makeText(InscriptionActivity.this, "no", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+        //register();
 
     }
 
@@ -46,7 +67,6 @@ public class InscriptionActivity extends AppCompatActivity {
 
     private void register() {
 
-        MyApp.getInstance().sessionID = true;
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

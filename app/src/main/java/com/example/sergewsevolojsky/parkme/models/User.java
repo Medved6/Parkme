@@ -23,8 +23,8 @@ public class User implements Parcelable {
     @JsonProperty(value = "imgUrl")
     private String imgUrl;
 
-    @JsonProperty(value = "email")
-    private String email;
+    @JsonProperty(value = "mail")
+    private String mail;
 
     @JsonProperty(value = "phone")
     private String phone;
@@ -55,12 +55,12 @@ public class User implements Parcelable {
     }
 
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getPhone() {
@@ -105,7 +105,7 @@ public class User implements Parcelable {
         dest.writeString(name);
         dest.writeString(id);
         dest.writeString(imgUrl);
-        dest.writeString(email);
+        dest.writeString(mail);
         dest.writeString(phone);
         dest.writeString(password);
     }
@@ -114,7 +114,7 @@ public class User implements Parcelable {
         name = in.readString();
         id = in.readString();
         imgUrl   = in.readString();
-        email   = in.readString();
+        mail   = in.readString();
         phone   = in.readString();
         password   = in.readString();
     }

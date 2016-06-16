@@ -3,6 +3,8 @@ package com.example.sergewsevolojsky.parkme;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -18,8 +20,6 @@ import java.util.ArrayList;
 public class MyApp extends Application {
 
     private static Context context;
-    public boolean sessionID = true;
-    public ArrayList<User> sessionUser;
 
     private static MyApp instance;
 
@@ -28,6 +28,8 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+
 
         MyApp.instance = this;
         MyApp.context = getApplicationContext();

@@ -15,17 +15,29 @@ public class UrlBuilder {
         return String.format("%s/users",BASE_url);
     }
 
-    public static String getSpotsUrl(){
-        return String.format("%s/spots",BASE_url);
+    public static String getUserLoginUrl(String email, String password) {
+        return String.format("%s/users?email=%s&password=%s",BASE_url,email,password);
     }
+
 
     public static String getReservationsByStatusUrl(int position, int status){
         return String.format("%s/reservation?userId=0&status=%s",BASE_url,status);
     }
 
+
     public static String getSpotByIdUrl(int id){
         return String.format("%s/spots?id=%s",BASE_url,id);
     }
+
+    public static String getSpotsUrl(float lat, float lon){
+        return String.format("%s/search?lat=%s&lon=%s",BASE_url,lat,lon);
+    }
+
+
+    public static String getSearchUrl(){
+        return String.format("%s/spots",BASE_url);
+    }
+
 
 
 }

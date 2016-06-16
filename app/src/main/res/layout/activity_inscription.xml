@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="42dp"
     tools:context="com.example.sergewsevolojsky.parkme.activity.InscriptionActivity">
 
 
@@ -23,114 +23,129 @@
 
             <!-- NAME INPUT  -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp">
+                android:orientation="vertical"
+                style="@style/form_control_style">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nom complet"
                     android:labelFor="@+id/register_name_edit_text"
-                    android:textAllCaps="true"
-                    android:textSize="13sp"
-                    android:alpha="0.5"/>
+                    style="@style/label_style"/>
                 <EditText
                     android:id="@+id/register_name_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:paddingBottom="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    style="@style/input_text_style"/>
+                <View
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    style="@style/blue_line_style"
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
 
 
             <!--  EMAIL INPUT  -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp">
+                android:orientation="vertical"
+                style="@style/form_control_style">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
                     android:labelFor="@+id/register_email_edit_text"
-                    android:textAllCaps="true"
-                    android:textSize="13sp"
-                    android:alpha="0.5"/>
+                    style="@style/label_style"/>
+
                 <EditText
                     android:id="@+id/register_email_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:paddingBottom="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    style="@style/input_text_style"
+                    />
+                <View
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    style="@style/blue_line_style"
                     />
 
-            </RelativeLayout>
+
+            </LinearLayout>
 
 
 
 
             <!--  PASSWORD  -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp">
+                android:orientation="vertical"
+                style="@style/form_control_style">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Mot de passe"
                     android:labelFor="@+id/register_password_edit_text"
-                    android:textAllCaps="true"
-                    android:textSize="13sp"
-                    android:alpha="0.5"/>
+                    style="@style/label_style"/>
+
                 <EditText
                     android:id="@+id/register_password_edit_text"
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:paddingBottom="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    style="@style/input_text_style"
                     />
 
-            </RelativeLayout>
+                <View
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    style="@style/blue_line_style"
+                    />
+
+            </LinearLayout>
 
 
 
 
             <!--  CARTE NUMBER  -->
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp">
+                android:orientation="vertical"
+                style="@style/form_control_style">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Numéro de carte"
                     android:labelFor="@+id/register_card_edit_text"
-                    android:textAllCaps="true"
-                    android:textSize="13sp"
-                    android:alpha="0.5"/>
+                    style="@style/label_style"/>
                 <EditText
                     android:id="@+id/register_card_edit_text"
                     android:inputType="textPassword"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:paddingBottom="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content"
+                    style="@style/input_text_style"/>
+
+                <View
+                    android:layout_height="1dp"
+                    android:layout_width="match_parent"
+                    style="@style/blue_line_style"
                     />
 
-            </RelativeLayout>
+            </LinearLayout>
 
 
 
@@ -140,48 +155,76 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="64dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                style="@style/form_control_style">
 
 
                 <!--  EXPIRATION DATE  -->
 
                 <LinearLayout
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
                     android:layout_weight=".5"
-                    android:layout_marginRight="32dp">
+                    style="@style/form_control_style">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Date d'expiration"
-                        android:textAllCaps="true"
-                        android:textSize="13sp"
-                        android:alpha="0.5"/>
+                        style="@style/label_style"/>
                     
                     <LinearLayout
 
                         android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:orientation="horizontal">
 
-                        <EditText
-                            android:id="@+id/register_expiration_month_edit_text"
-                            android:inputType="number"
-                            android:layout_height="64dp"
-                            android:paddingBottom="16dp"
-                            android:layout_width="0dp"
-                            android:layout_weight=".5"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:orientation="vertical">
 
-                        <EditText
-                            android:id="@+id/register_expiration_year_edit_text"
-                            android:inputType="number"
-                            android:layout_height="64dp"
-                            android:paddingBottom="16dp"
-                            android:layout_width="0dp"
-                            android:layout_weight=".5"/>
+                            <EditText
+                                android:id="@+id/register_expiration_month_edit_text"
+                                android:inputType="number"
+                                android:layout_height="wrap_content"
+                                android:layout_width="wrap_content"
+                                style="@style/input_text_style"
+                                />
+
+                            <View
+                                android:layout_height="1dp"
+                                android:layout_width="match_parent"
+                                style="@style/blue_line_style"
+                                />
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/register_expiration_year_edit_text"
+                                android:inputType="number"
+                                android:layout_height="wrap_content"
+                                android:layout_width="match_parent"
+                                style="@style/input_text_style"
+                                />
+
+                            <View
+                                android:layout_height="1dp"
+                                android:layout_width="match_parent"
+                                style="@style/blue_line_style"
+                                />
+
+                        </LinearLayout>
 
 
                     </LinearLayout>
@@ -193,43 +236,47 @@
 
 
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_weight=".5"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="32dp">
+                    android:layout_weight=".5"
+                    android:orientation="vertical"
+                    style="@style/form_control_style"
+                    >
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="CVV"
                         android:labelFor="@+id/register_card_cryptogram_edit_text"
-                        android:textAllCaps="true"
-                        android:textSize="13sp"
-                        android:alpha="0.5"/>
+                        style="@style/label_style"/>
                     <EditText
                         android:id="@+id/register_card_cryptogram_edit_text"
                         android:inputType="number"
                         android:layout_width="match_parent"
-                        android:layout_height="64dp"
-                        android:paddingBottom="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_height="wrap_content"
+                        style="@style/input_text_style"/>
+
+                    <View
+                        android:layout_height="1dp"
+                        android:layout_width="match_parent"
+                        style="@style/blue_line_style"
                         />
 
-
-                </RelativeLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
 
 
+
+
             <Button
                 android:id="@+id/RegistrationValidateButton"
                 android:layout_width="match_parent"
-                style="@style/ButtonBlue"
+                android:layout_height="wrap_content"
+                style="@style/input_submit_style"
                 android:text="Valider"
-                android:background="@drawable/button_blue"
-                android:onClick="login"
                 android:layout_marginBottom="42dp"/>
 
 
@@ -253,7 +300,8 @@
                     android:layout_height="wrap_content"
                     android:text="Se connecter?"
                     android:layout_marginLeft="12dp"
-                    android:textAllCaps="true"/>
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"/>
 
             </LinearLayout>
 

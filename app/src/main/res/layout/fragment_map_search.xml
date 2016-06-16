@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.sergewsevolojsky.parkme.fragments.MapSearchFragment"
+    android:background="@color/colorWhite"
+    android:paddingTop="12dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:paddingStart="24dp"
+        android:hint="Entrez une adresse"
+        android:paddingLeft="24dp"
+        android:background="@drawable/input_search_shape"
+
+        />
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="48dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+
+
+
+            <Button
+                android:id="@+id/arrival_picker_button"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_arrival"
+                android:layout_height="wrap_content"
+                android:text="Choisir une date"
+                style="@style/datePickerCtaStyle"
+                android:drawableLeft="@drawable/ic_arrival" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".5">
+
+
+
+            <Button
+                android:id="@+id/departure_picker_button"
+                android:layout_width="match_parent"
+                android:drawableStart="@drawable/ic_departure"
+                android:layout_height="wrap_content"
+                android:text="Choisir une date"
+                style="@style/datePickerCtaStyle"
+                android:drawableLeft="@drawable/ic_departure" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

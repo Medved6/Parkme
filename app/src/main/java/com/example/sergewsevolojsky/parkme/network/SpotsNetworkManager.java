@@ -67,7 +67,8 @@ public class SpotsNetworkManager {
 
 
 
-    
+
+
 
 // ALL SPOTS
 
@@ -83,9 +84,9 @@ public class SpotsNetworkManager {
 
 
     // REQUEST
-    public static void findSpots(int id , final SpotsResultListener listener) {
+    public static void findSpots(float lat, float lon,final SpotsResultListener listener) {
 
-        String url = UrlBuilder.getSpotByIdUrl(id);
+        String url = UrlBuilder.getSpotsUrl(lat, lon);
 
         JacksonRequest<Spots[]> request = new JacksonRequest<Spots[]>(Request.Method.GET, url, new JacksonRequestListener<Spots[]>() {
             @Override
