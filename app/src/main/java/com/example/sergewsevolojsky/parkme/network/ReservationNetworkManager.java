@@ -27,9 +27,9 @@ public class ReservationNetworkManager {
         void onFail();
     }
 
-    public static void findReservationByStatus(int position , int status,  final ReservationResultListener listener) {
+    public static void findReservationByStatus(int id , int status,  final ReservationResultListener listener) {
 
-        String url = UrlBuilder.getReservationsByStatusUrl(position, status);
+        String url = UrlBuilder.getReservationsByStatusUrl(id, status);
 
         JacksonRequest<Reservation[]> request = new JacksonRequest<Reservation[]>(Request.Method.GET, url, new JacksonRequestListener<Reservation[]>() {
             @Override

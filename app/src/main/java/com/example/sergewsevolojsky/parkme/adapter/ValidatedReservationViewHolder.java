@@ -27,6 +27,9 @@ public class ValidatedReservationViewHolder {
     @BindView(R.id.reservation_rental_departure_date_textview)
     TextView reservationRentalDepartureDateTextView ;
 
+    @BindView(R.id.reservation_price)
+    TextView reservationPriceTextView;
+
     public ValidatedReservationViewHolder(View itemView) {
 
         ButterKnife.bind(this, itemView);
@@ -44,9 +47,13 @@ public class ValidatedReservationViewHolder {
 
         String arrival = Integer.toString(reservations.getRental().getArrival().getDay()) + " " + reservations.getRental().getArrival().getMonth() + " - " + Integer.toString(reservations.getRental().getArrival().getYear());
         String departure = Integer.toString(reservations.getRental().getDeparture().getDay()) + " " + reservations.getRental().getDeparture().getMonth() + " - " + Integer.toString(reservations.getRental().getDeparture().getYear());
+        String price = Integer.toString(reservations.getRental().getRentalPrice()) + "€";
+
+
 
         reservationRentalArrivalDateTextView.setText(arrival);
         reservationRentalDepartureDateTextView.setText(departure);
+        reservationPriceTextView.setText(price);
 
 
 

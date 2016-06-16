@@ -39,27 +39,20 @@
                 android:id="@+id/reservation_adress_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"/>
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:alpha="0.8"/>
 
 
         </LinearLayout>
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#DBE9FA"
-            android:layout_marginTop="18dp"/>
-
-
-
 
 
         <!--  DATES INFORMATION  -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="32dp"
             android:orientation="horizontal">
 
 
@@ -75,7 +68,9 @@
                     android:id="@+id/reservation_rental_arrival_date_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp"
+                    android:drawableLeft="@drawable/ic_arrival"
+                    android:drawablePadding="10dp"/>
 
             </LinearLayout>
 
@@ -93,25 +88,41 @@
                     android:id="@+id/reservation_rental_departure_date_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"/>
+                    android:textSize="12sp"
+                    android:drawableLeft="@drawable/ic_departure"
+                    android:drawablePadding="10dp"/>
 
             </LinearLayout>
 
         </LinearLayout>
 
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#DBE9FA"
+            android:layout_marginTop="68dp"/>
+
+
+
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="82dp"
             >
 
             <TextView
+                android:id="@+id/reservation_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="145€"
                 android:gravity="center"
-                android:layout_marginTop="42dp"/>
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

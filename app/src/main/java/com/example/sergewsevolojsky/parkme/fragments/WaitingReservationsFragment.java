@@ -67,16 +67,14 @@ public class WaitingReservationsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Log.i("CLICK", "Position=" + position);
+            Log.i("CLICK", "Position=" + position);
 
 
-                Reservation reservation = validatedReservationsAdapter.getItem(position);
+            Reservation reservation = validatedReservationsAdapter.getItem(position);
 
-                Log.i("RESERVATION ID", "SPOT ID=" + reservation.getStreet());
+            Log.i("RESERVATION ID", "SPOT ID=" + reservation.getStreet());
 
-                displayReservationDetailFragment(reservation);
-
-                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
+            displayReservationDetailFragment(reservation);
 
             }
         });
@@ -91,10 +89,11 @@ public class WaitingReservationsFragment extends Fragment {
             public void onFindReservations(ArrayList<Reservation> reservations) {
                 Log.e("RESERVATIONS WAITING",reservations.toString());
 
-                Toast.makeText(getContext(), reservations.get(0).getZipCode(), Toast.LENGTH_SHORT).show();
+                if(!reservations.isEmpty()){
+                    validatedReservationsAdapter.refresh(reservations);
+                }
 
 
-                validatedReservationsAdapter.refresh(reservations);
 
             }
 

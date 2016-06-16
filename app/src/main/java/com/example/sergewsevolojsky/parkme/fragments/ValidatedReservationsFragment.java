@@ -77,14 +77,11 @@ public class ValidatedReservationsFragment extends Fragment {
 
                 Log.i("CLICK", "Position=" + position);
 
-
                 Reservation reservation = validatedReservationsAdapter.getItem(position);
 
                 Log.i("RESERVATION ID", "SPOT ID=" + reservation.getStreet());
 
                 displayReservationDetailFragment(reservation);
-
-                Toast.makeText(getContext(), "Test", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -97,22 +94,28 @@ public class ValidatedReservationsFragment extends Fragment {
 
 
 
+        // VALIDATE RESERVATION REQUEST
 
         ReservationNetworkManager.findReservationByStatus(0,0, new ReservationNetworkManager.ReservationResultListener() {
             @Override
             public void onFindReservations(ArrayList<Reservation> reservations) {
                 Log.e("RESERVATIONS",reservations.toString());
 
-                Toast.makeText(getContext(), reservations.get(0).getZipCode(), Toast.LENGTH_SHORT).show();
+                if(!reservations.isEmpty()){
+                    validatedReservationsAdapter.refresh(reservations);
+                } else {
+                    Log.i("RESERVATION", "EMPTY");
 
-
-                validatedReservationsAdapter.refresh(reservations);
+                }
 
             }
 
             @Override
             public void onFail() {}
         });
+
+
+
 
         return rootView;
     }
@@ -145,10 +148,6 @@ public class ValidatedReservationsFragment extends Fragment {
             @Override
             public void onFail() {}
         });
-
-
-
-
 
 
     }

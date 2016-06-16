@@ -14,7 +14,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         mapbox:access_token="@string/accessToken"
-        mapbox:style_url="mapbox://styles/mapbox/light-v9"
+        mapbox:style_url="mapbox://styles/mapbox/streets-v8"
         mapbox:center_latitude="48.858124"
         mapbox:center_longitude="2.35742"
         mapbox:zoom="13" />

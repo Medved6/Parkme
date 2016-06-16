@@ -20,8 +20,8 @@ public class UrlBuilder {
     }
 
 
-    public static String getReservationsByStatusUrl(int position, int status){
-        return String.format("%s/reservation?userId=0&status=%s",BASE_url,status);
+    public static String getReservationsByStatusUrl(int id, int status){
+        return String.format("%s/reservation?userId=%s&status=%s",BASE_url,id,status);
     }
 
 

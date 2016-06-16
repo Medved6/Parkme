@@ -16,7 +16,7 @@
     <string name="nav_logout_text">Se déconnecter</string>
 
 
-    <string name="accessToken">pk.eyJ1IjoiY2VyZ3VlaSIsImEiOiJLMm52NGFRIn0.Ta_U2Y5PT81EOuW_OdAOeQ</string>
+    <string name="accessToken">pk.eyJ1IjoibHVjaWFubzkzIiwiYSI6ImNpcGJxMnVoaTAwMjJ1OGtzbTUxZzBjNjQifQ.eMOR9lz-_f6HTZj4KrAJCw</string>
     <string name="title_activity_reservations">ReservationsActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
